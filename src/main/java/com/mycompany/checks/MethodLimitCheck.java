@@ -6,10 +6,8 @@ import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 
 /**
  * <p>
- * 토큰과 관련된 4가지 매소드가 제공된다. setToken은 기본으로 제공되는 토큰 이외의 토큰을 사용하고자 할 때 쓰는 것이다. 나머지
- * 3개는 getter인데, <br>
- * getDefaultToken : visitToken 매소드에서 기본으로 사용하는 token sets을 리턴한다.<br>
- * getRequiredToken : Check가 수행되기 위해 필수로 필요한 token<br>
+ * we are not allowed to use UTF-8 
+ * <p>
  * 
  * 
  * <pre>
@@ -27,7 +25,7 @@ java -classpath mycompanychecks.jar;checkstyle-${projectVersion}-all.jar ^
  */
 public class MethodLimitCheck extends AbstractCheck {
 	
-	private static final int DEFAULT_MAX = 2;
+	private static final int DEFAULT_MAX = 100;
 	private int max = DEFAULT_MAX;
 
 	@Override
@@ -53,7 +51,7 @@ public class MethodLimitCheck extends AbstractCheck {
 	@Override
 	public void visitToken(DetailAST ast) {
 
-		System.out.println("===========visit===============");
+		System.out.println("===========visit ===============" + ast.toString());
 
 		// find the OBJBLOCK node below the CLASS_DEF/INTERFACE_DEF
 		DetailAST objBlock = ast.findFirstToken(TokenTypes.OBJBLOCK);

@@ -19,6 +19,8 @@
       <scope>test</scope>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/com.puppycrawl.tools/checkstyle 
+      체크스타일 개발을 위해 받는 라이브러리 -->
     <dependency>
       <groupId>com.puppycrawl.tools</groupId>
       <artifactId>checkstyle</artifactId>
